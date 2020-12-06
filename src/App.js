@@ -1,62 +1,61 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const emojiDict = {
-  "🍇": "Grapes",
-  "🍈": "Melon",
-  "🍉": "Watermelon",
-  "🍊": "Tangerine",
-  "🍋": "Lemon",
-  "🍌": "Banana",
-  "🍍": "Pineapple",
-  "🥭": "Mango",
-  "🍎": "Red Apple",
-  "🍏": "Green Apple",
-  "🍐": "Pear",
-  "🍑": "Peach",
-  "🍒": "Cherries",
-  "🍓": "Strawberry",
-  "🥝": "Kiwi Fruit",
-  "🍅": "Tomato",
-  "🥥": "Coconut",
-  "🥑": "Avocado",
-  "🍆": "Eggplant",
-  "🥔": "Potato",
-  "🥕": "Carrot"
+const musicDB = {
+  pop: [
+    {
+      Name: "One Direction",
+      Song: "Night Changes"
+    }
+  ],
+  country: [
+    {
+      Name: "Keith Urban",
+      Song: "Somewhere in my car"
+    }
+  ],
+
+  indie: [
+    {
+      Name: "Local Train",
+      Song: "Choo Loo"
+    }
+  ]
 };
 
-const emojiArray = Object.keys(emojiDict);
+const genreArray = Object.keys(musicDB);
 
 export default function App() {
-  const [emojiMeaning, setEmojiMeaning] = useState("");
+  const [selectedGenre, setGenreTab] = useState("pop");
 
-  function onChangeHandler(emoji) {
-    if (emoji in emojiDict) {
-      // console.log(emoji);
-      setEmojiMeaning(emojiDict[emoji]);
-    } else {
-      // console.log(emoji);
-      setEmojiMeaning("Sorry the database doesn't have it.");
-    }
-  }
-  function onClickHandler(emoji) {
-    emoji = emoji.target.textContent;
-    setEmojiMeaning(emojiDict[emoji]);
+  function onClickHandler(event) {
+    let genre = event.target.textContent;
+    setGenreTab(genre);
   }
   return (
     <div className="App">
-      <h1>Emoji Interpreter</h1>
-      <input onChange={(event) => onChangeHandler(event.target.value)}></input>
-      <div className="fruits">
-        {emojiArray.map((emoji) => {
+      <h1>Good Songs</h1>
+      <div className="genreButtons">
+        {genreArray.map((genre) => {
           return (
-            <span key={emoji} onClick={onClickHandler}>
-              {emoji}
-            </span>
+            <button key={genre} onClick={onClickHandler}>
+              {genre}
+            </button>
           );
         })}
       </div>
-      <h1>{emojiMeaning}</h1>
+      <div className="genreSongs">
+        <ul>
+          {musicDB[selectedGenre].map((artist) => {
+            return (
+              <li key={artist}>
+                <div>{artist.Name}</div>
+                <div>{artist.Song}</div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
