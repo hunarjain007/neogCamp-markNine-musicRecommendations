@@ -6,12 +6,20 @@ const musicDB = {
     {
       Name: "One Direction",
       Song: "Night Changes"
+    },
+    {
+      Name: "One Direction",
+      Song: "Steal My Girl"
     }
   ],
   country: [
     {
       Name: "Keith Urban",
       Song: "Somewhere in my car"
+    },
+    {
+      Name: "Keith Urban",
+      Song: "Cop Car"
     }
   ],
 
@@ -19,6 +27,10 @@ const musicDB = {
     {
       Name: "Local Train",
       Song: "Choo Loo"
+    },
+    {
+      Name: "Local Train",
+      Song: "Dil Mere"
     }
   ]
 };
@@ -34,7 +46,15 @@ export default function App() {
   }
   return (
     <div className="App">
-      <h1>Good Songs</h1>
+      <h1>
+        <span aria-label="song-emoji" role="img">
+          🎼
+        </span>{" "}
+        good songs
+      </h1>
+      <p>Checkout the songs by selecting the genre </p>
+      <hr />
+
       <div className="genreButtons">
         {genreArray.map((genre) => {
           return (
@@ -49,8 +69,12 @@ export default function App() {
           {musicDB[selectedGenre].map((artist) => {
             return (
               <li key={artist}>
-                <div>{artist.Name}</div>
                 <div>{artist.Song}</div>
+                <div>
+                  <small>
+                    <em>{artist.Name}</em>
+                  </small>
+                </div>
               </li>
             );
           })}

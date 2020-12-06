@@ -1,22 +1,30 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-input {
-  width: 60%;
-}
-
-div {
-  margin: 1rem;
-}
-
-.fruits {
-  width: 60%;
+  max-width: 600px;
   margin: auto;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-span {
-  padding: 0.5rem;
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #efefef;
+}
+
+button {
+  border-radius: 0.5rem;
+  background-color: #e5e7eb;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0.5rem 0rem 0rem;
+  cursor: pointer;
+}
+ul {
+  padding-inline-start: 0rem;
+}
+
+li {
+  list-style: none;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  width: 70%;
+  margin: 1rem 0rem;
+  border-radius: 0.5rem;
 }
