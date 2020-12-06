@@ -1,0 +1,22 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+input {
+  width: 60%;
+}
+
+div {
+  margin: 1rem;
+}
+
+.fruits {
+  width: 60%;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+span {
+  padding: 0.5rem;
+}
